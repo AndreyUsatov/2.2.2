@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cars</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #34db10;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #cd0909;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Cars List</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Year</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="car : ${cars}">
+    <td th:text="${car.make}"></td>
+    <td th:text="${car.model}"></td>
+    <td th:text="${car.year}"></td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Add New Car</h2>
+<form action="#" th:action="@{/cars}" method="post">
+  <label for="make">Make:</label>
+  <input type="text" id="make" name="make" required>
+
+  <label for="model">Model:</label>
+  <input type="text" id="model" name="model" required>
+
+  <label for="year">Year:</label>
+  <input type="number" id="year" name="year" required>
+
+  <button type="submit">Add Car</button>
+</form>
+
+</body>
+</html>
